@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
+use Symfony\Component\Console\Input\Input;
 
 
 class PostController extends Controller
@@ -18,8 +22,9 @@ class PostController extends Controller
     public function index()
     {
 
-        // get all the sharks
-        $posts = Post::paginate(8);
+
+        $posts = Post::orderBy('id', 'desc')->paginate(8);
+//        $posts = Post::paginate(8);
 
         // load the view and pass the sharks
         return View::make('posts.index')
@@ -42,10 +47,20 @@ class PostController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
+//        dd("hey");
+//        $request->validate([
+//            'title' => 'required',
+//            'description' => 'required',
+//        ]);
+//        dd($request);
+//        Post::create($request->all());
+//
+//        return redirect()->route('posts.index')
+//            ->with('success','Post created successfully.');
 //        $table->string('title', 50);
 //        $table->longText('description')->nullable();
 //        $table->text('link');
@@ -54,27 +69,29 @@ class PostController extends Controller
         // read more on validation at http://laravel.com/docs/validation
         $rules = array(
             'title' => 'required',
-            'link'  => 'required|url'
+            'link'  => 'required'
         );
-        $validator = Validator::make(Input::all(), $rules);
+        $validator = Validator::make($request->all(), $rules);
 
         // process the login
         if ($validator->fails()) {
             return Redirect::to('posts/create')
                 ->withErrors($validator)
-                ->withInput(Input::except('link'))
+//                ->withInput(Input::except('link'))
                 ;
         } else {
             // store
             $post = new Post;
-            $post->title       = Input::get('title');
-            $post->description = Input::get('description');
-            $post->link        = Input::get('link');
+            $post->title       = $request->title;
+            $post->description = $request->description;
+            $post->link        = $request->link;
             $post->save();
 
             // redirect
             Session::flash('message', '포스트가 성공적으로 작성 완료되었습니다!');
-            return Redirect::to('posts');
+            return Redirect::route('posts.show', $post)->with('success', 'Post saved correctly!!!');
+//            return Redirect::route('posts.show')->with('post', $post);
+//            return Redirect::to('posts.create', $post);
         }
     }
 
