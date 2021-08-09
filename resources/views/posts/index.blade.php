@@ -31,11 +31,14 @@
                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                     설명
                                                 </th>
-                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wide">
                                                     링크
                                                 </th>
-                                                <th scope="col" class="relative px-6 py-3">
-                                                    <span class="sr-only">Edit</span>
+                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wide">
+                                                </th>
+                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wide">
+                                                </th>
+                                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wide">
                                                 </th>
                                             </tr>
                                             </thead>
@@ -43,7 +46,7 @@
                                             <tbody class="bg-white divide-y divide-gray-200">
                                             @foreach ($posts as $post)
                                                 <tr>
-                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                    <td class="px-2 py-4 whitespace-nowrap">
                                                         <div class="flex items-center">
                                                             <div class="ml-4">
                                                                 <div class="text-sm font-medium text-gray-900">
@@ -63,19 +66,21 @@
                                                         </div>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                        <a href="{{ route('posts.show', $post) }}" class="text-indigo-600 hover:text-indigo-900">상세보기</a>
+                                                        <a href="{{ route('posts.show', $post) }}" class="text-gray-400 hover:text-gray-600">상세보기</a>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                        <a href="{{ route('posts.edit', $post) }}" class="text-indigo-600 hover:text-indigo-900">편집</a>
+                                                        <a href="{{ route('posts.edit', $post) }}" class="text-indigo-400 hover:text-indigo-600">편집</a>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                        <a href="#" class="text-red-600 hover:text-indigo-900">삭제</a>
+                                                        <a href="#" class="text-red-400 hover:text-red-600">삭제</a>
                                                     </td>
                                                 </tr>
                                                 <!-- More people... -->
                                             @endforeach
                                             </tbody>
                                         </table>
+                                        <div class="p-4">{!! $posts->links() !!}</div>
+
                                     </div>
                                 </div>
                             </div>
