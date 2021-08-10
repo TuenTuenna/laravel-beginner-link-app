@@ -5,6 +5,17 @@
         </h2>
     </x-slot>
 
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -27,12 +38,16 @@
                                         <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                                             <div class="grid grid-cols-3 gap-6">
                                                 <div class="col-span-6 sm:col-span-4">
+                                                    @error('title')
+                                                    <div class="alert alert-danger">{{ $message }}</div>
+                                                    @enderror
                                                     <label for="title" class="block text-sm font-medium text-gray-700">제목</label>
                                                     <input type="text" name="title" id="email-address" autocomplete="text"
                                                            placeholder="제목을 작성해주세요!"
                                                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                                 </div>
                                                 <div class="col-span-6 sm:col-span-4">
+
                                                     <label for="link" class="block text-sm font-medium text-gray-700">
                                                         링크
                                                     </label>

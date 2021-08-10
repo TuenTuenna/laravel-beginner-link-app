@@ -51,19 +51,6 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-//        dd("hey");
-//        $request->validate([
-//            'title' => 'required',
-//            'description' => 'required',
-//        ]);
-//        dd($request);
-//        Post::create($request->all());
-//
-//        return redirect()->route('posts.index')
-//            ->with('success','Post created successfully.');
-//        $table->string('title', 50);
-//        $table->longText('description')->nullable();
-//        $table->text('link');
 
         // validate
         // read more on validation at http://laravel.com/docs/validation
@@ -87,11 +74,7 @@ class PostController extends Controller
             $post->link        = $request->link;
             $post->save();
 
-            // redirect
-            Session::flash('message', '포스트가 성공적으로 작성 완료되었습니다!');
-            return Redirect::route('posts.show', $post)->with('success', 'Post saved correctly!!!');
-//            return Redirect::route('posts.show')->with('post', $post);
-//            return Redirect::to('posts.create', $post);
+            return Redirect::route('posts.show', $post)->with('success', '포스트 [' . $request->title . '] 가 성공적으로 작성되었습니다!');
         }
     }
 

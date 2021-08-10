@@ -5,17 +5,6 @@
         </h2>
     </x-slot>
 
-    @if ($message = Session::get('success'))
-{{--        <div class="alert alert-success alert-block">--}}
-{{--            <button type="button" class="close" data-dismiss="alert">×</button>--}}
-{{--            <strong>{{ $message }}</strong>--}}
-{{--        </div>--}}
-        <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
-            <p class="font-bold">성공</p>
-            <p>{{ $message }}</p>
-        </div>
-    @endif
-
     @if ($message = Session::get('error'))
         <div class="alert alert-danger alert-block">
             <button type="button" class="close" data-dismiss="alert">×</button>
@@ -41,6 +30,15 @@
         <div class="alert alert-danger">
             <button type="button" class="close" data-dismiss="alert">×</button>
             Check the following errors :(
+        </div>
+    @endif
+
+    @if ($message = Session::get('success'))
+
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="mt-5 bg-green-100 border border-green-100 bg-green-500 px-4 py-3 rounded relative" role="alert">
+                <span class="block sm:inline text-white">{{ $message }}</span>
+            </div>
         </div>
     @endif
 
