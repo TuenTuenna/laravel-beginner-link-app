@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
-use Symfony\Component\Console\Input\Input;
+
 
 
 class PostController extends Controller
@@ -63,9 +63,8 @@ class PostController extends Controller
         // process the login
         if ($validator->fails()) {
             return Redirect::to('posts/create')
-                ->withErrors($validator)
+                ->withErrors($validator)->withInput();
 //                ->withInput(Input::except('link'))
-                ;
         } else {
             // store
             $post = new Post;
@@ -99,8 +98,12 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+//        return view('posts.edit',compact('post'));
         //
-        return View::make('posts.edit', ['post' => $post]);
+//        return View::make('posts.edit', ['post' => $post]);
+// show the view and pass the shark to it
+        return View::make('posts.edit')
+            ->with('post', $post);
     }
 
     /**
@@ -108,11 +111,35 @@ class PostController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, Post $post)
     {
-        //
+        // validate
+        // read more on validation at http://laravel.com/docs/validation
+        $rules = array(
+            'title'       => 'required',
+            'link'      => 'required',
+        );
+        $validator = Validator::make($request->all(), $rules);
+
+        // process the login
+        if ($validator->fails()) {
+
+            return Redirect::to('posts/' . $post->id . '/edit')
+                ->withErrors($validator)
+                ->withInput($request->except(['title', 'link']));
+//                ->withInput(Input::except('password'));
+        } else {
+            // store
+//            $shark = post::find($post);
+            $post->title        = $request->title;
+            $post->link         = $request->link;
+            $post->description  = $request->description;
+            $post->save();
+
+            return Redirect::route('posts.show', $post)->with('success', '포스트 [' . $post->title . '] 가 성공적으로 수정되었습니다!');
+        }
     }
 
     /**

@@ -5,6 +5,15 @@
         </h2>
     </x-slot>
 
+{{--    <div x-data="{ open: false }">--}}
+{{--        <button x-on:click="open = ! open, Session::flash('show-alert', 'alert-danger'); ">Toggle Dropdown</button>--}}
+
+{{--        <div :class="open ? '' : 'hidden'">--}}
+{{--            Dropdown Contents...--}}
+{{--        </div>--}}
+{{--        <x-alert title="타이틀" message="open" type="warning"></x-alert>--}}
+{{--    </div>--}}
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -45,6 +54,7 @@
 
                                             <tbody class="bg-white divide-y divide-gray-200">
                                             @foreach ($posts as $post)
+
                                                 <tr>
                                                     <td class="px-2 py-4 whitespace-nowrap">
                                                         <div class="flex items-center">
@@ -72,8 +82,10 @@
                                                         <a href="{{ route('posts.edit', $post) }}" class="text-indigo-400 hover:text-indigo-600">편집</a>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                        <a href="#" class="text-red-400 hover:text-red-600">삭제</a>
+{{--                                                        <a href="#" class="text-red-400 hover:text-red-600">삭제</a>--}}
+                                                        <x-deactivate-modal></x-deactivate-modal>
                                                     </td>
+
                                                 </tr>
                                                 <!-- More people... -->
                                             @endforeach

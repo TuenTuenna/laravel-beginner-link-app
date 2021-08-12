@@ -5,6 +5,10 @@
         </h2>
     </x-slot>
 
+{{--    @if(session('alert_message'))--}}
+{{--        <x-alert></x-alert>--}}
+{{--    @endif--}}
+
     @if ($message = Session::get('error'))
         <div class="alert alert-danger alert-block">
             <button type="button" class="close" data-dismiss="alert">×</button>
@@ -31,6 +35,7 @@
             <button type="button" class="close" data-dismiss="alert">×</button>
             Check the following errors :(
         </div>
+        <x-alert :message="session('alert_message')" title="Warning Title" type="warning"></x-alert>
     @endif
 
     @if ($message = Session::get('success'))
@@ -56,6 +61,7 @@
                                     </p>
                                 </div>
                             </div>
+
                             <div class="mt-5 md:mt-0 md:col-span-2">
                                 <form action="#" method="POST">
                                     <div class="shadow sm:rounded-md sm:overflow-hidden">

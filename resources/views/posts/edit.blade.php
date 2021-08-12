@@ -19,44 +19,59 @@
                                     </p>
                                 </div>
                             </div>
+
                             <div class="mt-5 md:mt-0 md:col-span-2">
-                                <form action="#" method="POST">
+                                <form action="{{ route('posts.update', $post) }}" method="POST" >
+                                    @csrf
+                                    @method('PUT')
                                     <div class="shadow sm:rounded-md sm:overflow-hidden">
                                         <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                                             <div class="grid grid-cols-3 gap-6">
                                                 <div class="col-span-6 sm:col-span-4">
-                                                    <label for="title" class="block text-sm font-medium text-gray-700">제목</label>
-                                                    <input type="text" name="title" id="email-address" autocomplete="text"
-                                                           placeholder="제목을 작성해주세요!"
-                                                           value="{{ $post->title ?? '제목 없음' }}"
-                                                           class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                                    {{-- 타이틀 부분 --}}
+                                                    <label for="title" class="block text-sm font-medium text-gray-700 mr-3 @error('title') hidden @enderror">제목 </label>
+                                                    @error('title')
+                                                    <div class="text-sm text-red-500">{{ $message }}</div>
+                                                    @enderror
+                                                    <div class=""  x-data="{ titleValue: '{{ ($errors->has('title')) ? '' : $post->title }}' }">
+                                                        <input type="text" name="title" id="title" autocomplete="text"
+                                                               placeholder="ex) 나만 알고 싶은 링크.."
+                                                               x-bind:value="titleValue"
+                                                               class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                                    </div>
                                                 </div>
                                                 <div class="col-span-6 sm:col-span-4">
-                                                    <label for="company-website" class="block text-sm font-medium text-gray-700">
+                                                    {{-- 링크 부분 --}}
+                                                    <label for="link" class="block text-sm font-medium text-gray-700 @error('link') hidden @enderror">
                                                         링크
                                                     </label>
+                                                    @error('link')
+                                                    <div class="text-sm text-red-500">{{ $message }}</div>
+                                                    @enderror
                                                     <div class="mt-1 flex rounded-md shadow-sm">
-                  <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
-                    http://
-                  </span>
-                                                        <input type="text" name="company-website" id="company-website"
-                                                               class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
-                                                               placeholder="www.example.com"
-                                                               value="{{ $post->link ?? '' }}"
-                                                        >
+                                                          <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                                                            http://
+                                                          </span>
+                                                        <div  x-data="{ linkValue: '{{ ($errors->has('link')) ? '' : $post->link }}' }">
+                                                            <input type="text" name="link" id="link"
+                                                                   class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
+                                                                   placeholder="www.example.com"
+                                                                   x-bind:value="linkValue"
+                                                            >
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-
+                                            {{-- 설명 부분 --}}
                                             <div>
-                                                <label for="about" class="block text-sm font-medium text-gray-700">
+                                                <label for="description" class="block text-sm font-medium text-gray-700">
                                                     설명
                                                 </label>
                                                 <div class="mt-1">
-                                                    <textarea id="about" name="about" rows="3"
+                                                    <textarea id="description" name="description" rows="3"
                                                               class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
                                                               placeholder="링크에 대한 설명"
-                                                    >{{ $post->description ?? '' }}</textarea>
+                                                    >{{ old('description', null) === null ? $post->description : old('description')}}</textarea>
                                                 </div>
                                                 <p class="mt-2 text-sm text-gray-500">
                                                     공유하는 링크에 대한 상세설명을 작성해주세요!
@@ -73,10 +88,18 @@
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
     </div>
 </x-app-layout>
+
+<script>
+    'use strict'
+
+    window.validateInput = function () {
+        return {
+            descriptionInput: ''
+        }
+    }
+</script>

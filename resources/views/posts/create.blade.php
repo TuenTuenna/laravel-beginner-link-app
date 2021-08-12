@@ -6,15 +6,16 @@
     </x-slot>
 
 
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+{{--    @if ($errors->any())--}}
+{{--        <div class="alert alert-danger">--}}
+{{--            <ul>--}}
+{{--                @foreach ($errors->all() as $error)--}}
+{{--                    <li>{{ $error }}</li>--}}
+{{--                @endforeach--}}
+{{--            </ul>--}}
+{{--        </div>--}}
+{{--        <x-alert></x-alert>--}}
+{{--    @endif--}}
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -38,24 +39,29 @@
                                         <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                                             <div class="grid grid-cols-3 gap-6">
                                                 <div class="col-span-6 sm:col-span-4">
+                                                    <label for="title" class="block text-sm font-medium text-gray-700 mr-3 @error('title') hidden @enderror">제목 </label>
                                                     @error('title')
-                                                    <div class="alert alert-danger">{{ $message }}</div>
+                                                    <div class="text-sm text-red-500">{{ $message }}</div>
                                                     @enderror
-                                                    <label for="title" class="block text-sm font-medium text-gray-700">제목</label>
                                                     <input type="text" name="title" id="email-address" autocomplete="text"
                                                            placeholder="제목을 작성해주세요!"
+                                                           value="{{ old('title')}}"
                                                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                                 </div>
                                                 <div class="col-span-6 sm:col-span-4">
-
-                                                    <label for="link" class="block text-sm font-medium text-gray-700">
+                                                    <label for="link" class="block text-sm font-medium text-gray-700 @error('link') hidden @enderror">
                                                         링크
                                                     </label>
+                                                    @error('link')
+                                                    <div class="text-sm text-red-500">{{ $message }}</div>
+                                                    @enderror
                                                     <div class="mt-1 flex rounded-md shadow-sm">
                   <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
                     http://
                   </span>
-                                                        <input type="text" name="link" id="link" class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="www.example.com">
+                                                        <input type="text" name="link" id="link"
+                                                               value="{{ old('link')}}"
+                                                               class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" placeholder="www.example.com">
                                                     </div>
                                                 </div>
                                             </div>
@@ -65,7 +71,10 @@
                                                     설명
                                                 </label>
                                                 <div class="mt-1">
-                                                    <textarea id="description" name="description" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="링크에 대한 설명"></textarea>
+                                                    <textarea id="description" name="description" rows="3"
+                                                              class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
+                                                              placeholder="링크에 대한 설명"
+                                                    >{{  old('description') }}</textarea>
                                                 </div>
                                                 <p class="mt-2 text-sm text-gray-500">
                                                     공유하는 링크에 대한 상세설명을 작성해주세요!

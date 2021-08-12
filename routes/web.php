@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Comment;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,28 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 //    return view('posts');
     return redirect('posts');
+});
+
+Route::get('/blade-component-test', function () {
+//    return view('posts');
+    return view('blade-component');
+});
+
+Route::get('/comments/{comment}/edit', function(\App\Models\Comment $comment) {
+    return view('comments.edit', ['comment' => $comment]);
+});
+
+Route::patch('/comments/{comment}', function(Comment $comment) {
+    $comment->update(
+        request()->validate(['body' => 'required|string'])
+    );
+    return redirect("/comments/{$comment->id}/edit");
+});
+
+Route::delete('/comments/{comment}', function(Comment $comment) {
+    // 삭제 인증
+    $comment->delete();
+    return redirect("/");
 });
 
 //Route::view('/posts', 'posts')->name('posts');
