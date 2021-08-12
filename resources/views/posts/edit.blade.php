@@ -52,7 +52,7 @@
                                                           <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
                                                             http://
                                                           </span>
-                                                        <div  x-data="{ linkValue: '{{ ($errors->has('link')) ? '' : $post->link }}' }">
+                                                        <div class="flex-1 block w-full" x-data="{ linkValue: '{{ ($errors->has('link')) ? '' : $post->link }}' }">
                                                             <input type="text" name="link" id="link"
                                                                    class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
                                                                    placeholder="www.example.com"

@@ -63,7 +63,7 @@
                             </div>
 
                             <div class="mt-5 md:mt-0 md:col-span-2">
-                                <form action="#" method="POST">
+                                <x-form action="/" method="DELETE">
                                     <div class="shadow sm:rounded-md sm:overflow-hidden">
                                         <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                                             <div class="grid grid-cols-3 gap-6">
@@ -95,12 +95,13 @@
                                                 </p>
                                             </div>
                                         </div>
-                                        <div class="py-6 px-3 bg-gray-50 text-right  ">
+                                        <div class="py-6 px-3 bg-gray-50 text-right flex flex-row-reverse items-baseline">
                                             <a href="{{ route('posts.edit', $post) }}" class="py-2 px-4 mr-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">편집하기</a>
-                                            <a href="#" class="py-2 px-4 mr-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">삭제하기</a>
+                                            <x-delete-post-modal-button></x-delete-post-modal-button>
+{{--                                            <a href="#" class="py-2 px-4 mr-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">삭제하기</a>--}}
                                         </div>
                                     </div>
-                                </form>
+                                </x-form>
                             </div>
                         </div>
                     </div>
