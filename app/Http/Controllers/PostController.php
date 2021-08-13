@@ -146,10 +146,15 @@ class PostController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
     public function destroy(Post $post)
     {
-        //
+//        dd($post->title);
+        $post->delete();
+        return redirect("/");
+//        //
+//        return View::make('posts.show')
+//            ->with('post', $post);
     }
 }

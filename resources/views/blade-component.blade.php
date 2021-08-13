@@ -38,4 +38,5 @@
 {{--        </x-slot>--}}
         성공 입니다!
     </x-flash-message>
+    <x-form-button></x-form-button>
 </x-layout>

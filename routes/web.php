@@ -47,6 +47,9 @@ Route::delete('/comments/{comment}', function(Comment $comment) {
 //    //
 //})->name('profile');
 
+
+
+
 Route::resource('posts', \App\Http\Controllers\PostController::class);
 
 

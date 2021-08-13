@@ -83,7 +83,14 @@
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
 {{--                                                        <a href="#" class="text-red-400 hover:text-red-600">삭제</a>--}}
-                                                        <x-deactivate-modal></x-deactivate-modal>
+                                                        {{-- 삭제 호출 --}}
+                                                        <x-delete-post-modal-button
+{{--                                                            class="text-yellow-400 hover:text-yellow-600"--}}
+                                                            postId="{{ $post->id }}"
+                                                            title="{{ $post->title }}"
+                                                            link="{{ $post->link }}"
+                                                            description="{{ $post->description }}">
+                                                        </x-delete-post-modal-button>
                                                     </td>
 
                                                 </tr>
