@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\PaginateAPI;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -42,6 +43,8 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            // api 처리할 때 links 메타데이터 제거하기
+            PaginateAPI::class
         ],
     ];
 
