@@ -38,16 +38,18 @@
         <x-alert :message="session('alert_message')" title="Warning Title" type="warning"></x-alert>
     @endif
 
+    {{-- 포스팅 등록 성공 flash 메세지가 있을때 --}}
     @if ($message = Session::get('success'))
-
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="mt-5 bg-green-100 border border-green-100 bg-green-500 px-4 py-3 rounded relative" role="alert">
-                <span class="block sm:inline text-white">{{ $message }}</span>
-            </div>
-        </div>
+{{--        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">--}}
+{{--            <div class="mt-5 bg-green-100 border border-green-100 bg-green-500 px-4 py-3 rounded relative" role="alert">--}}
+{{--                <span class="block sm:inline text-white">{{ $message }}</span>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+        {{-- type 에 따른 flash 메세지 success/warning/error --}}
+        <x-flash-message class="mt-6 mx-6">{{ $message }}</x-flash-message>
     @endif
 
-    <div class="py-12">
+    <div class="pb-12 pt-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">

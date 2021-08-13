@@ -3,6 +3,7 @@
     submit-label="확인"
     type="warning"
 >
+    {{-- 트리거를 통해 blade 콤포넌트에 클릭 이벤트를 전달한다 --}}
     <x-slot name="trigger">
         <a @click="on = true" class="py-2 px-4 mr-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">삭제</a>
     </x-slot>

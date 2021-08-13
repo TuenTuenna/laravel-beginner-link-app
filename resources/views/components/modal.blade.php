@@ -14,7 +14,6 @@
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
             <!--
               Background overlay, show/hide based on modal state.
-
               Entering: "ease-out duration-300"
                 From: "opacity-0"
                 To: "opacity-100"
