@@ -71,9 +71,7 @@
                                                         </div>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap">
-                                                        <div class="text-sm text-gray-500">
-                                                            {{ $post->link }}
-                                                        </div>
+                                                        <a href="{{ "http://" . $post->link ?? '링크 없음' }}" target="_blank" class="hover:underline hover:text-blue-500 block text-sm font-medium text-gray-500">{{ $post->link ?? '링크 없음' }}</a>
                                                     </td>
                                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                         <a href="{{ route('posts.show', $post) }}" class="text-gray-400 hover:text-gray-600">상세보기</a>
