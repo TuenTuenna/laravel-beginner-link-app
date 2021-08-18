@@ -1,0 +1,259 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "beginner-roadmap.test"
+        }
+    ],
+    "info": {
+        "name": "Laravel",
+        "_postman_id": "0a22c659-c5b8-4175-9564-5a05169e5296",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "\ud3ec\uc2a4\ud305 \ubaa9\ub85d \uac00\uc838\uc624\uae30",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/posts"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":[{\"id\":1,\"title\":\"\\uc81c\\ubaa9 : Ex omnis qui.\",\"link\":\"\\ub9c1\\ud06c : www.naver.com\",\"description\":\"\\uc124\\uba85 : Ipsam molestiae fugit possimus.\",\"create_at\":\"1 week ago \\uc804\\uc5d0 \\uc791\\uc131\\ub418\\uc5c8\\ub2e4.\"},{\"id\":2,\"title\":\"\\uc81c\\ubaa9 : Optio.\",\"link\":\"\\ub9c1\\ud06c : www.naver.com\",\"description\":\"\\uc124\\uba85 : Modi repudiandae eaque sapiente.\",\"create_at\":\"1 week ago \\uc804\\uc5d0 \\uc791\\uc131\\ub418\\uc5c8\\ub2e4.\"},{\"id\":3,\"title\":\"\\uc81c\\ubaa9 : Qui et et nam.\",\"link\":\"\\ub9c1\\ud06c : www.naver.com\",\"description\":\"\\uc124\\uba85 : Odit nisi consequuntur rem aperiam.\",\"create_at\":\"1 week ago \\uc804\\uc5d0 \\uc791\\uc131\\ub418\\uc5c8\\ub2e4.\"},{\"id\":4,\"title\":\"\\uc81c\\ubaa9 : Ut quaerat.\",\"link\":\"\\ub9c1\\ud06c : www.google.com\",\"description\":\"\\uc124\\uba85 : Ullam cum accusamus cupiditate.\",\"create_at\":\"1 week ago \\uc804\\uc5d0 \\uc791\\uc131\\ub418\\uc5c8\\ub2e4.\"},{\"id\":5,\"title\":\"\\uc81c\\ubaa9 : Explicabo ex.\",\"link\":\"\\ub9c1\\ud06c : www.google.com\",\"description\":\"\\uc124\\uba85 : Velit ut dolor voluptatem maiores.\",\"create_at\":\"1 week ago \\uc804\\uc5d0 \\uc791\\uc131\\ub418\\uc5c8\\ub2e4.\"},{\"id\":6,\"title\":\"\\uc81c\\ubaa9 : Et ex dolor.\",\"link\":\"\\ub9c1\\ud06c : www.daum.net\",\"description\":\"\\uc124\\uba85 : Quis ipsam ab commodi voluptates assumenda.\",\"create_at\":\"1 week ago \\uc804\\uc5d0 \\uc791\\uc131\\ub418\\uc5c8\\ub2e4.\"},{\"id\":7,\"title\":\"\\uc81c\\ubaa9 : Optio suscipit.\",\"link\":\"\\ub9c1\\ud06c : www.google.com\",\"description\":\"\\uc124\\uba85 : Veniam adipisci voluptas quo quidem.\",\"create_at\":\"1 week ago \\uc804\\uc5d0 \\uc791\\uc131\\ub418\\uc5c8\\ub2e4.\"},{\"id\":8,\"title\":\"\\uc81c\\ubaa9 : Et eligendi.\",\"link\":\"\\ub9c1\\ud06c : www.google.com\",\"description\":\"\\uc124\\uba85 : Qui doloremque ex aut perspiciatis nesciunt eos.\",\"create_at\":\"1 week ago \\uc804\\uc5d0 \\uc791\\uc131\\ub418\\uc5c8\\ub2e4.\"},{\"id\":9,\"title\":\"\\uc81c\\ubaa9 : Qui deleniti.\",\"link\":\"\\ub9c1\\ud06c : www.naver.com\",\"description\":\"\\uc124\\uba85 : Nihil dolorem dolor suscipit facere.\",\"create_at\":\"1 week ago \\uc804\\uc5d0 \\uc791\\uc131\\ub418\\uc5c8\\ub2e4.\"},{\"id\":12,\"title\":\"\\uc81c\\ubaa9 : Ducimus quam.\",\"link\":\"\\ub9c1\\ud06c : www.naver.com\",\"description\":\"\\uc124\\uba85 : Aperiam assumenda natus ratione corrupti.\",\"create_at\":\"1 week ago \\uc804\\uc5d0 \\uc791\\uc131\\ub418\\uc5c8\\ub2e4.\"}],\"meta\":{\"current_page\":1,\"from\":1,\"last_page\":6,\"path\":\"http:\\\/\\\/beginner-roadmap.test\\\/api\\\/posts\",\"per_page\":10,\"to\":10,\"total\":60}}",
+                            "name": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Store a newly created resource in storage.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/posts"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"qui\",\"link\":\"architecto\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Display the specified resource.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/posts\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "18",
+                                    "description": "The ID of the post."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "58"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"data\":{\"id\":1,\"title\":\"\\uc81c\\ubaa9 : Ex omnis qui.\",\"link\":\"\\ub9c1\\ud06c : www.naver.com\",\"description\":\"\\uc124\\uba85 : Ipsam molestiae fugit possimus.\",\"create_at\":\"1 week ago \\uc804\\uc5d0 \\uc791\\uc131\\ub418\\uc5c8\\ub2e4.\"}}",
+                            "name": null
+                        }
+                    ]
+                },
+                {
+                    "name": "Update the specified resource in storage.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/posts\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "5",
+                                    "description": "The ID of the post."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"title\":\"ipsam\",\"link\":\"voluptas\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove the specified resource from storage.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/posts\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/posts\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "18",
+                                    "description": "The ID of the post."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

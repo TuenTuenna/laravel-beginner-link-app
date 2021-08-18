@@ -152,7 +152,8 @@ class PostController extends Controller
     {
 //        dd($post->title);
         $post->delete();
-        return redirect("/");
+        return Redirect::route('posts.index')->with('success', '포스트 [' . $post->title . '] 가 성공적으로 삭제되었습니다!');
+//        return redirect("/");
 //        //
 //        return View::make('posts.show')
 //            ->with('post', $post);

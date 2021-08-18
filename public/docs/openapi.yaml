@@ -1,0 +1,340 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://beginner-roadmap.test'
+paths:
+  /api/posts:
+    get:
+      summary: '포스팅 목록 가져오기'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      title: '제목 : Ex omnis qui.'
+                      link: '링크 : www.naver.com'
+                      description: '설명 : Ipsam molestiae fugit possimus.'
+                      create_at: '1 week ago 전에 작성되었다.'
+                    -
+                      id: 2
+                      title: '제목 : Optio.'
+                      link: '링크 : www.naver.com'
+                      description: '설명 : Modi repudiandae eaque sapiente.'
+                      create_at: '1 week ago 전에 작성되었다.'
+                    -
+                      id: 3
+                      title: '제목 : Qui et et nam.'
+                      link: '링크 : www.naver.com'
+                      description: '설명 : Odit nisi consequuntur rem aperiam.'
+                      create_at: '1 week ago 전에 작성되었다.'
+                    -
+                      id: 4
+                      title: '제목 : Ut quaerat.'
+                      link: '링크 : www.google.com'
+                      description: '설명 : Ullam cum accusamus cupiditate.'
+                      create_at: '1 week ago 전에 작성되었다.'
+                    -
+                      id: 5
+                      title: '제목 : Explicabo ex.'
+                      link: '링크 : www.google.com'
+                      description: '설명 : Velit ut dolor voluptatem maiores.'
+                      create_at: '1 week ago 전에 작성되었다.'
+                    -
+                      id: 6
+                      title: '제목 : Et ex dolor.'
+                      link: '링크 : www.daum.net'
+                      description: '설명 : Quis ipsam ab commodi voluptates assumenda.'
+                      create_at: '1 week ago 전에 작성되었다.'
+                    -
+                      id: 7
+                      title: '제목 : Optio suscipit.'
+                      link: '링크 : www.google.com'
+                      description: '설명 : Veniam adipisci voluptas quo quidem.'
+                      create_at: '1 week ago 전에 작성되었다.'
+                    -
+                      id: 8
+                      title: '제목 : Et eligendi.'
+                      link: '링크 : www.google.com'
+                      description: '설명 : Qui doloremque ex aut perspiciatis nesciunt eos.'
+                      create_at: '1 week ago 전에 작성되었다.'
+                    -
+                      id: 9
+                      title: '제목 : Qui deleniti.'
+                      link: '링크 : www.naver.com'
+                      description: '설명 : Nihil dolorem dolor suscipit facere.'
+                      create_at: '1 week ago 전에 작성되었다.'
+                    -
+                      id: 12
+                      title: '제목 : Ducimus quam.'
+                      link: '링크 : www.naver.com'
+                      description: '설명 : Aperiam assumenda natus ratione corrupti.'
+                      create_at: '1 week ago 전에 작성되었다.'
+                  meta:
+                    current_page: 1
+                    from: 1
+                    last_page: 6
+                    path: 'http://beginner-roadmap.test/api/posts'
+                    per_page: 10
+                    to: 10
+                    total: 60
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        title: '제목 : Ex omnis qui.'
+                        link: '링크 : www.naver.com'
+                        description: '설명 : Ipsam molestiae fugit possimus.'
+                        create_at: '1 week ago 전에 작성되었다.'
+                      -
+                        id: 2
+                        title: '제목 : Optio.'
+                        link: '링크 : www.naver.com'
+                        description: '설명 : Modi repudiandae eaque sapiente.'
+                        create_at: '1 week ago 전에 작성되었다.'
+                      -
+                        id: 3
+                        title: '제목 : Qui et et nam.'
+                        link: '링크 : www.naver.com'
+                        description: '설명 : Odit nisi consequuntur rem aperiam.'
+                        create_at: '1 week ago 전에 작성되었다.'
+                      -
+                        id: 4
+                        title: '제목 : Ut quaerat.'
+                        link: '링크 : www.google.com'
+                        description: '설명 : Ullam cum accusamus cupiditate.'
+                        create_at: '1 week ago 전에 작성되었다.'
+                      -
+                        id: 5
+                        title: '제목 : Explicabo ex.'
+                        link: '링크 : www.google.com'
+                        description: '설명 : Velit ut dolor voluptatem maiores.'
+                        create_at: '1 week ago 전에 작성되었다.'
+                      -
+                        id: 6
+                        title: '제목 : Et ex dolor.'
+                        link: '링크 : www.daum.net'
+                        description: '설명 : Quis ipsam ab commodi voluptates assumenda.'
+                        create_at: '1 week ago 전에 작성되었다.'
+                      -
+                        id: 7
+                        title: '제목 : Optio suscipit.'
+                        link: '링크 : www.google.com'
+                        description: '설명 : Veniam adipisci voluptas quo quidem.'
+                        create_at: '1 week ago 전에 작성되었다.'
+                      -
+                        id: 8
+                        title: '제목 : Et eligendi.'
+                        link: '링크 : www.google.com'
+                        description: '설명 : Qui doloremque ex aut perspiciatis nesciunt eos.'
+                        create_at: '1 week ago 전에 작성되었다.'
+                      -
+                        id: 9
+                        title: '제목 : Qui deleniti.'
+                        link: '링크 : www.naver.com'
+                        description: '설명 : Nihil dolorem dolor suscipit facere.'
+                        create_at: '1 week ago 전에 작성되었다.'
+                      -
+                        id: 12
+                        title: '제목 : Ducimus quam.'
+                        link: '링크 : www.naver.com'
+                        description: '설명 : Aperiam assumenda natus ratione corrupti.'
+                        create_at: '1 week ago 전에 작성되었다.'
+                    items:
+                      type: object
+                  meta:
+                    type: object
+                    example:
+                      current_page: 1
+                      from: 1
+                      last_page: 6
+                      path: 'http://beginner-roadmap.test/api/posts'
+                      per_page: 10
+                      to: 10
+                      total: 60
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'Store a newly created resource in storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: ''
+                  example: qui
+                link:
+                  type: string
+                  description: ''
+                  example: architecto
+              required:
+                - title
+                - link
+      security: []
+  '/api/posts/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    title: '제목 : Ex omnis qui.'
+                    link: '링크 : www.naver.com'
+                    description: '설명 : Ipsam molestiae fugit possimus.'
+                    create_at: '1 week ago 전에 작성되었다.'
+                properties:
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      title: '제목 : Ex omnis qui.'
+                      link: '링크 : www.naver.com'
+                      description: '설명 : Ipsam molestiae fugit possimus.'
+                      create_at: '1 week ago 전에 작성되었다.'
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'Update the specified resource in storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: ''
+                  example: ipsam
+                link:
+                  type: string
+                  description: ''
+                  example: voluptas
+              required:
+                - title
+                - link
+      security: []
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the post.'
+        example: 18
+        required: true
+        schema:
+          type: integer

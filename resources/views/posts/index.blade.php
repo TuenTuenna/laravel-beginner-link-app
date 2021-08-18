@@ -14,7 +14,12 @@
 {{--        <x-alert title="타이틀" message="open" type="warning"></x-alert>--}}
 {{--    </div>--}}
 
-    <div class="py-12">
+    {{-- 포스팅 등록 성공 flash 메세지가 있을때 --}}
+    @if ($message = Session::get('success'))
+        <x-flash-message class="mt-6 mx-6">{{ $message }}</x-flash-message>
+    @endif
+
+    <div class="pb-12 pt-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
@@ -54,7 +59,6 @@
 
                                             <tbody class="bg-white divide-y divide-gray-200">
                                             @foreach ($posts as $post)
-
                                                 <tr>
                                                     <td class="px-2 py-4 whitespace-nowrap">
                                                         <div class="flex items-center">
@@ -90,7 +94,6 @@
                                                             description="{{ $post->description }}">
                                                         </x-delete-post-modal-button>
                                                     </td>
-
                                                 </tr>
                                                 <!-- More people... -->
                                             @endforeach
